@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_180756) do
+ActiveRecord::Schema.define(version: 2019_03_19_180906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "recipe_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "quantity_ingredients", force: :cascade do |t|
     t.string "quantities_and_ingredients"
@@ -52,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_180756) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "recipes"
+  add_foreign_key "comments", "users"
   add_foreign_key "quantity_ingredients", "recipes"
   add_foreign_key "recipes", "users", column: "creator_id"
   add_foreign_key "recipes", "users", column: "poster_id"
