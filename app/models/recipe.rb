@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   has_many :ratings
   has_many :users, through: :ratings
   has_many :saved_recipes
-  has_many :users, through: :saved_recipesecipes
+  has_many :users, through: :saved_recipes
 
 
   validates :name, presence: true
