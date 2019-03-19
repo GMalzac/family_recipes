@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :saved_recipes
   has_many :rating
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :username, presence: true
+
 end
