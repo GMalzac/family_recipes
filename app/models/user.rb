@@ -11,5 +11,4 @@ class User < ApplicationRecord
   has_many :saved_recipes
   has_many :rating
 
-
 end
