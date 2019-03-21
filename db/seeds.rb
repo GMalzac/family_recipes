@@ -2,9 +2,10 @@ require 'faker'
 
 p "Start seeding..."
 
+# Comment.destroy_all
+# p "All comments deleted"
 QuantityIngredient.destroy_all
 p "All ingredients deleted"
-
 Recipe.destroy_all
 p "All recipes deleted"
 User.destroy_all
@@ -51,5 +52,17 @@ Recipe.all.each do |recipe|
   rand(3..10).times do
     QuantityIngredient.create!(recipe_id: recipe.id, quantities_and_ingredients: ["1l of Milk", "300g of Flour", "5 Eggs", "100g of Sugar", "5g of Salt", "1l of Water", "3cl of Vegetable oil", "2 branches of Cinnamon", "2 spoons of Paprika", "400g Jasmin rice", "200g Butter", "5g Pepper",
 "3 Flying fish", "3 spoons Lime juice", "1 Garlic", "1 Celery", "1 Corn meal", "2 Okra", "300g Lentils", "4 Onion", "5 Tumeric", "3 Cumin", "2 Ginger"].sample)
+  end
+end
+
+p "Creating comments"
+Recipe.all.each do |recipe|
+  rand(0..5).times do
+    Comment.create!(
+      content: ["excellent", "loved it", "not so good", "average", "won't do it again", "could be improved with slightly more salt", "Perfect, I do it all the time, my kids love it"].sample,
+      user_id: rand(User.first.id..User.last.id),
+      recipe_id: rand(Recipe.first.id..Recipe.last.id)
+    )
+    print "."
   end
 end
