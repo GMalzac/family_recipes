@@ -1,12 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
 
 <h2>Dernières recettes ajoutées</h2>
 <% @latest_recipes.each do |recipe| %>
-  <%= recipe.name %>
+  <p><%= recipe.name %> - <%= recipe.category %> de <%= recipe.creator.first_name %></p>
 <% end %>
 
 <h2>Un repas complet au hasard pour la 2!</h2>
-<%= @random_starter.name %>
-<%= @random_main.name %>
-<%= @random_desert.name %>
+  <p><%= @random_starter.name %> - <%= @random_starter.category %> de <%= @random_starter.creator.first_name %></p>
+  <p><%= @random_main.name %> - <%= @random_main.category %> de <%= @random_main.creator.first_name %></p>
+  <p><%= @random_desert.name %> - <%= @random_desert.category %> de <%= @random_desert.creator.first_name %></p>
