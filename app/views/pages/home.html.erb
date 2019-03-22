@@ -1,2 +1,12 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<h2>Dernières recettes ajoutées</h2>
+<% @latest_recipes.each do |recipe| %>
+  <%= recipe.name %>
+<% end %>
+
+<h2>Un repas complet au hasard pour la 2!</h2>
+<%= @random_starter.name %>
+<%= @random_main.name %>
+<%= @random_desert.name %>
