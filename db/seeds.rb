@@ -2,8 +2,11 @@ require 'faker'
 
 p "Start seeding..."
 
-# Comment.destroy_all
-# p "All comments deleted"
+
+# Rating.destroy_all
+# p "All ratings deleted"
+Comment.destroy_all
+p "All comments deleted"
 QuantityIngredient.destroy_all
 p "All ingredients deleted"
 Recipe.destroy_all
@@ -64,5 +67,12 @@ Recipe.all.each do |recipe|
       recipe_id: rand(Recipe.first.id..Recipe.last.id)
     )
     print "."
+  end
+end
+
+p "Creating ratings"
+Recipe.all.each do |recipe|
+  rand(0..5).times do
+    Rating.create(stars: [0, 1, 2, 3, 4, 5].sample, recipe_id: recipe.id, user_id: rand(User.first.id..User.last.id))
   end
 end
