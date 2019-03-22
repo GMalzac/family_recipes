@@ -37,6 +37,11 @@ p "Creating 25 fake users"
   print "."
 end
 
+def random_user
+  rand(User.first.id..User.last.id)
+end
+
+
 p "Creating 40 recipes"
 40.times do
   Recipe.create!(
@@ -44,12 +49,17 @@ p "Creating 40 recipes"
     cooktime: [0, 5, 10, 15, 20, 25, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 240, 300, 360, 420].sample,
     preptime: [0, 5, 10, 15, 20, 25, 30, 45, 60, 75, 90].sample,
     category: ["Entrée / Apéro", "Plat principal végétarien", "Plat principal à base de viande", "Plat principal à base de poisson", "Dessert"].sample,
-    creator_id: rand(User.first.id..User.last.id),
-    poster_id: rand(User.first.id..User.last.id),
+    creator_id: random_user,
+    poster_id: random_user,
     description: Faker::Food.description
   )
   print "."
 end
+
+def random_recipe
+  rand(Recipe.first.id..Recipe.last.id)
+end
+
 
 p "Creating ingredients for recipes"
 Recipe.all.each do |recipe|
@@ -64,8 +74,8 @@ Recipe.all.each do |recipe|
   rand(0..5).times do
     Comment.create!(
       content: ["excellent", "loved it", "not so good", "average", "won't do it again", "could be improved with slightly more salt", "Perfect, I do it all the time, my kids love it"].sample,
-      user_id: rand(User.first.id..User.last.id),
-      recipe_id: rand(Recipe.first.id..Recipe.last.id)
+      user_id: random_user,
+      recipe_id: random_recipe
     )
     print "."
   end
@@ -74,7 +84,7 @@ end
 p "Creating ratings"
 Recipe.all.each do |recipe|
   rand(0..5).times do
-    Rating.create!(stars: [0, 1, 2, 3, 4, 5].sample, recipe_id: recipe.id, user_id: rand(User.first.id..User.last.id))
+    Rating.create!(stars: [0, 1, 2, 3, 4, 5].sample, recipe_id: recipe.id, user_id: random_user)
   end
 end
 
@@ -82,7 +92,7 @@ p "Creating saved recipes"
 User.all.each do |user|
   recipes = Recipe.all
   rand(0..5).times do
-    SavedRecipe.create!(user_id: user.id, recipe_id: rand(Recipe.first.id..Recipe.last.id))
+    SavedRecipe.create!(user_id: user.id, recipe_id: random_recipe)
     print "."
   end
 end
