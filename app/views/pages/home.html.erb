@@ -1,4 +1,12 @@
-
+<div id="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.5) 50%), url(<%= image_path "daube-sanglier.jpg" %>);""">
+  <div class="container">
+    <div class="wrapper-center">
+      <h1>Nos recettes de famille</h1>
+      <input type="text" placeholder="Entrez une recette, un ingrédient, un utilisateur...">
+      <%= link_to "Ajouter une recette", root_path %>
+    </div>
+  </div>
+</div>
 
 <h2>Dernières recettes ajoutées</h2>
 <% @latest_recipes.each do |recipe| %>

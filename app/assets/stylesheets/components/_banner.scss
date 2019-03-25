@@ -1,0 +1,37 @@
+#banner {
+  color: white;
+  text-align: center;
+  height: calc(50vh - 70px);
+  background-size: cover !important;
+  display: flex;
+  justify-content: center;
+  background-position: top;
+  margin: 0 auto;
+}
+
+#banner h1 {
+  margin-top: 10vh;
+}
+
+#banner input {
+  margin-top: 5vh;
+  border-radius: 50px;
+  width: 400px;
+  padding-left: 10px;
+}
+
+#banner a {
+  padding-top: 12px;
+  font-weight: 600;
+  align-self: center;
+  display: block;
+  background-color: #00807B;
+  width: 200px;
+  margin: 10vh auto;
+  text-decoration: none;
+  color: white;
+  height: 50px;
+  border-radius: 50px;
+  line-height: 25px;
+}
+
