@@ -8,12 +8,30 @@
   </div>
 </div>
 
-<h2>Dernières recettes ajoutées</h2>
-<% @latest_recipes.each do |recipe| %>
-  <p><%= recipe.name %> - <%= recipe.category %> de <%= recipe.creator.first_name %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h2>Dernières recettes ajoutées</h2>
+  </div>
+  <div class="row">
+    <div class="card-deck">
+      <% @latest_recipes.each do |recipe| %>
+        <div class="card">
+          <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+<!--           <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title"><%= recipe.name %> - <%= recipe.category %></h5>
+            <p class="card-text"><%= recipe.creator.first_name %></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<h2>Un repas complet au hasard pour la 2!</h2>
-  <p><%= @random_starter.name %> - <%= @random_starter.category %> de <%= @random_starter.creator.first_name %></p>
-  <p><%= @random_main.name %> - <%= @random_main.category %> de <%= @random_main.creator.first_name %></p>
-  <p><%= @random_desert.name %> - <%= @random_desert.category %> de <%= @random_desert.creator.first_name %></p>
+  <h2>Un repas complet au hasard pour la 2!</h2>
+    <p><%= @random_starter.name %> - <%= @random_starter.category %> de <%= @random_starter.creator.first_name %></p>
+    <p><%= @random_main.name %> - <%= @random_main.category %> de <%= @random_main.creator.first_name %></p>
+    <p><%= @random_desert.name %> - <%= @random_desert.category %> de <%= @random_desert.creator.first_name %></p>
+</div>
