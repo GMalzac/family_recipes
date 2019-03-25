@@ -16,8 +16,11 @@
 #banner input {
   margin-top: 5vh;
   border-radius: 50px;
-  width: 400px;
   padding-left: 10px;
+  width: 100%;
+  @media(min-width: 720px) {
+    width: 400px;
+  }
 }
 
 #banner a {

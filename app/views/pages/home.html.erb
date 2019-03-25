@@ -17,7 +17,6 @@
       <% @latest_recipes.each do |recipe| %>
         <div class="card">
           <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
-<!--           <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
             <h5 class="card-title"><%= recipe.name %> - <%= recipe.category %></h5>
             <p class="card-text"><%= recipe.creator.first_name %></p>
@@ -29,9 +28,32 @@
       <% end %>
     </div>
   </div>
-
-  <h2>Un repas complet au hasard pour la 2!</h2>
-    <p><%= @random_starter.name %> - <%= @random_starter.category %> de <%= @random_starter.creator.first_name %></p>
-    <p><%= @random_main.name %> - <%= @random_main.category %> de <%= @random_main.creator.first_name %></p>
-    <p><%= @random_desert.name %> - <%= @random_desert.category %> de <%= @random_desert.creator.first_name %></p>
+  <div class="row">
+    <h2>Un repas complet au hasard pour la 2!</h2>
+  </div>
+  <div class="row">
+    <div class="card-deck">
+      <div class="card">
+        <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @random_starter.name %> - <%= @random_starter.category %></h5>
+          <p class="card-text"><%= @random_starter.creator.first_name %></p>
+        </div>
+      </div>
+      <div class="card">
+        <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @random_main.name %> - <%= @random_main.category %></h5>
+          <p class="card-text"><%= @random_main.creator.first_name %></p>
+        </div>
+      </div>
+      <div class="card">
+        <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @random_desert.name %> - <%= @random_desert.category %></h5>
+          <p class="card-text"><%= @random_desert.creator.first_name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
