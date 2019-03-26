@@ -16,14 +16,17 @@
     <div class="card-deck">
       <% @latest_recipes.each do |recipe| %>
         <div class="card">
-          <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= recipe.name %> - <%= recipe.category %></h5>
-            <p class="card-text"><%= recipe.creator.first_name %></p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
+          <%= link_to recipe_path(recipe) do %>
+            <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= recipe.name %></h5>
+              <h6 class="card-title"><%= recipe.category %></h6>
+              <p class="card-text"><%= recipe.creator.first_name %></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -34,25 +37,31 @@
   <div class="row">
     <div class="card-deck">
       <div class="card">
-        <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @random_starter.name %> - <%= @random_starter.category %></h5>
-          <p class="card-text"><%= @random_starter.creator.first_name %></p>
-        </div>
+        <%= link_to recipe_path(@random_starter.id) do %>
+          <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= @random_starter.name %> - <%= @random_starter.category %></h5>
+            <p class="card-text"><%= @random_starter.creator.first_name %></p>
+          </div>
+        <% end %>
       </div>
       <div class="card">
-        <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @random_main.name %> - <%= @random_main.category %></h5>
-          <p class="card-text"><%= @random_main.creator.first_name %></p>
-        </div>
+        <%= link_to recipe_path(@random_main.id) do %>
+          <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= @random_main.name %> - <%= @random_main.category %></h5>
+            <p class="card-text"><%= @random_main.creator.first_name %></p>
+          </div>
+        <% end %>
       </div>
       <div class="card">
-        <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @random_desert.name %> - <%= @random_desert.category %></h5>
-          <p class="card-text"><%= @random_desert.creator.first_name %></p>
-        </div>
+        <%= link_to recipe_path(@random_desert.id) do %>
+          <%= image_tag "placeholder", alt: "alttext", class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= @random_desert.name %> - <%= @random_desert.category %></h5>
+            <p class="card-text"><%= @random_desert.creator.first_name %></p>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
