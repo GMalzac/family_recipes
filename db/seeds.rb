@@ -4,8 +4,6 @@ p "Start seeding..."
 
 SavedRecipe.destroy_all
 p "All saved recipes deleted"
-Rating.destroy_all
-p "All ratings deleted"
 Comment.destroy_all
 p "All comments deleted"
 QuantityIngredient.destroy_all
@@ -72,16 +70,11 @@ end
 p "Creating comments and ratings"
 Recipe.all.each do |recipe|
   rand(0..10).times do
-    user_id = random_user_id
     Comment.create!(
       content: ["excellent", "loved it", "not so good", "average", "won't do it again", "could be improved with slightly more salt", "Perfect, I do it all the time, my kids love it"].sample,
-      user_id: user_id,
-      recipe_id: recipe.id
-    )
-    Rating.create!(
-      stars: [0, 1, 2, 3, 4, 5].sample,
+      user_id: random_user_id,
       recipe_id: recipe.id,
-      user_id: user_id
+      rating: [0, 1, 2, 3, 4, 5].sample
     )
     print "."
   end
