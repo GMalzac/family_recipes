@@ -21,12 +21,22 @@
     </div>
     <div class="col-xs-12 col-md-4">
       <h2>Commentaires</h2>
-        <ul>
-          <% @recipe.comments.each do |comment| %>
-            <li><%= comment.content %> from <%= comment.user.first_name %></li>
-          <% end %>
-        </ul>
-    </div>
+<!--         <ul>
+ -->          <% @recipe.comments.each do |comment| %>
+<!--             <li> -->
+              <div class="row">
+                <div class="col-2 col-xs-2">
+                  <%= image_tag "default-profile", alt: "alttext", class: "img-fluid avatar" %>
+                </div>
+                <div class="col-10 col-xs-10">
+                  <%= Rating.where %>
+                  <%= comment.content %> from <%= comment.user.first_name %></li>
+                </div>
+              </div>
+<!--             </li>
+ -->          <% end %>
+<!--         </ul>
+ -->    </div>
   </div>
 
 </div>

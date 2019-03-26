@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_182616) do
+ActiveRecord::Schema.define(version: 2019_03_26_175713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_182616) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -31,16 +32,6 @@ ActiveRecord::Schema.define(version: 2019_03_19_182616) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_quantity_ingredients_on_recipe_id"
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer "stars"
-    t.bigint "user_id"
-    t.bigint "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_ratings_on_recipe_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -85,8 +76,6 @@ ActiveRecord::Schema.define(version: 2019_03_19_182616) do
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
   add_foreign_key "quantity_ingredients", "recipes"
-  add_foreign_key "ratings", "recipes"
-  add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "users", column: "creator_id"
   add_foreign_key "recipes", "users", column: "poster_id"
   add_foreign_key "saved_recipes", "recipes"
